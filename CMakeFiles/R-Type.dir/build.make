@@ -93,6 +93,8 @@ R__Type_EXTERNAL_OBJECTS =
 R-Type: CMakeFiles/R-Type.dir/Src/main.cpp.o
 R-Type: CMakeFiles/R-Type.dir/build.make
 R-Type: /Library/Frameworks/./sfml-graphics.framework/Versions/2.5.1/sfml-graphics
+R-Type: /Library/Frameworks/./sfml-audio.framework/Versions/2.5.1/sfml-audio
+R-Type: /Library/Frameworks/./sfml-network.framework/Versions/2.5.1/sfml-network
 R-Type: /Library/Frameworks/./sfml-window.framework/Versions/2.5.1/sfml-window
 R-Type: /Library/Frameworks/./sfml-system.framework/Versions/2.5.1/sfml-system
 R-Type: CMakeFiles/R-Type.dir/link.txt

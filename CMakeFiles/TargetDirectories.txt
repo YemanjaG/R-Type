@@ -1,7 +1,3 @@
 /Users/gabrieldetaxis/Desktop/TEK3 2022-2023/R-Type/CMakeFiles/R-Type.dir
 /Users/gabrieldetaxis/Desktop/TEK3 2022-2023/R-Type/CMakeFiles/edit_cache.dir
 /Users/gabrieldetaxis/Desktop/TEK3 2022-2023/R-Type/CMakeFiles/rebuild_cache.dir
-/Users/gabrieldetaxis/Desktop/TEK3 2022-2023/R-Type/CMakeFiles/list_install_components.dir
-/Users/gabrieldetaxis/Desktop/TEK3 2022-2023/R-Type/CMakeFiles/install.dir
-/Users/gabrieldetaxis/Desktop/TEK3 2022-2023/R-Type/CMakeFiles/install/local.dir
-/Users/gabrieldetaxis/Desktop/TEK3 2022-2023/R-Type/CMakeFiles/install/strip.dir

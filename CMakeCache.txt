@@ -27,7 +27,7 @@ CMAKE_BUILD_TYPE:STRING=Debug
 CMAKE_COLOR_MAKEFILE:BOOL=ON
 
 //CXX compiler
-CMAKE_CXX_COMPILER:FILEPATH=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++
+CMAKE_CXX_COMPILER:STRING=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++
 
 //Flags used by the CXX compiler during all build types.
 CMAKE_CXX_FLAGS:STRING=
@@ -45,7 +45,7 @@ CMAKE_CXX_FLAGS_RELEASE:STRING=-O3 -DNDEBUG
 CMAKE_CXX_FLAGS_RELWITHDEBINFO:STRING=-O2 -g -DNDEBUG
 
 //C compiler
-CMAKE_C_COMPILER:FILEPATH=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc
+CMAKE_C_COMPILER:STRING=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc
 
 //Flags used by the C compiler during all build types.
 CMAKE_C_FLAGS:STRING=
@@ -221,6 +221,45 @@ CMAKE_STRIP:FILEPATH=/Applications/Xcode.app/Contents/Developer/Toolchains/Xcode
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
+//Directory under which to collect all populated content
+FETCHCONTENT_BASE_DIR:PATH=/Users/gabrieldetaxis/Desktop/TEK3 2022-2023/R-Type/_deps
+
+//Disables all attempts to download or update content and assumes
+// source dirs already exist
+FETCHCONTENT_FULLY_DISCONNECTED:BOOL=OFF
+
+//Enables QUIET option for all content population
+FETCHCONTENT_QUIET:BOOL=ON
+
+//When not empty, overrides where to find pre-populated content
+// for asio
+FETCHCONTENT_SOURCE_DIR_ASIO:PATH=
+
+//When not empty, overrides where to find pre-populated content
+// for asio-cmake
+FETCHCONTENT_SOURCE_DIR_ASIO-CMAKE:PATH=
+
+//Enables UPDATE_DISCONNECTED behavior for all content population
+FETCHCONTENT_UPDATES_DISCONNECTED:BOOL=OFF
+
+//Enables UPDATE_DISCONNECTED behavior just for population of asio
+FETCHCONTENT_UPDATES_DISCONNECTED_ASIO:BOOL=OFF
+
+//Enables UPDATE_DISCONNECTED behavior just for population of asio-cmake
+FETCHCONTENT_UPDATES_DISCONNECTED_ASIO-CMAKE:BOOL=OFF
+
+//Git command line client
+GIT_EXECUTABLE:FILEPATH=/usr/bin/git
+
+//Value Computed by CMake
+HelloSFML_BINARY_DIR:STATIC=/Users/gabrieldetaxis/Desktop/TEK3 2022-2023/R-Type
+
+//Value Computed by CMake
+HelloSFML_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+HelloSFML_SOURCE_DIR:STATIC=/Users/gabrieldetaxis/Desktop/TEK3 2022-2023/R-Type
+
 //Value Computed by CMake
 R-Type_BINARY_DIR:STATIC=/Users/gabrieldetaxis/Desktop/TEK3 2022-2023/R-Type
 
@@ -235,6 +274,15 @@ SFML_DIR:PATH=/Library/Frameworks/SFML.framework/Resources/CMake
 
 //Path to a file.
 SFML_DOC_DIR:PATH=SFML_DOC_DIR-NOTFOUND
+
+//Value Computed by CMake
+asio-cmake_BINARY_DIR:STATIC=/Users/gabrieldetaxis/Desktop/TEK3 2022-2023/R-Type/_deps/asio-cmake-build
+
+//Value Computed by CMake
+asio-cmake_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+asio-cmake_SOURCE_DIR:STATIC=/Users/gabrieldetaxis/Desktop/TEK3 2022-2023/R-Type/_deps/asio-cmake-src
 
 
 ########################
@@ -378,4 +426,6 @@ CMAKE_STRIP-ADVANCED:INTERNAL=1
 CMAKE_UNAME:INTERNAL=/usr/bin/uname
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: GIT_EXECUTABLE
+GIT_EXECUTABLE-ADVANCED:INTERNAL=1
 
