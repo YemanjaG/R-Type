@@ -1,77 +1,106 @@
-#cmake_minimum_required(VERSION 3.19 FATAL_ERROR)
-#
-## Set project name and version
-#project(R-Type VERSION 0.1)
-#
-## Set C++ standard
-#set(CMAKE_CXX_STANDARD 11)
-#set(CMAKE_CXX_EXTENSIONS OFF)
-#set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
-#
-## Enable debug symbols by default
-#if(NOT CMAKE_BUILD_TYPE)
-#    set(CMAKE_BUILD_TYPE Debug
-#            CACHE STRING
-#            "Choose the type of build (Debug or Release)"
-#            FORCE
-#            )
-#endif()
-#
-## Generate config.h
-## configure_file(config.h.in config.h)
-#
-## Find SFML shared libraries
-#find_package(SFML 2.5.1
-#        COMPONENTS
-#        system window graphics network audio REQUIRED
-#        )
-#
-#include(FetchContent)
-#
-##Asio Fetch
-#FetchContent_Declare(asio-cmake
-#        GIT_REPOSITORY https://github.com/kingsamchen/asio-cmake.git
-#        GIT_TAG        origin/master
-#        )
-#
-## Specify asio version
-##set(ASIO_CMAKE_ASIO_TAG asio-1-12-2)
-##FetchContent_MakeAvailable(asio-cmake)
-#
-## ...
-#
-#
-## Compile executable
-#add_executable(R-Type Src/main.cpp)
-## Set include directory search paths
-#
-#
-## Link executable to required SFML libraries
-#target_link_libraries(R-Type sfml-graphics)
-##Asio link
-## target_link_libraries(R-Type asio)
-#
-##target_include_directories($/Users/gabrieldetaxis/Documents/Library/FrameWorks/SFML.framework/Versions/2.5.1/Headers)
-#
-## target_include_directories(R-Type
-##        PRIVATE
-##       "${PROJECT_BINARY_DIR}"
-##      )
-#
-#
-#
-## Install target
-#install(TARGETS R-Type DESTINATION bin)
-
 cmake_minimum_required(VERSION 3.14)
-project(R-Type)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+project(R-Type-client)
+project(R-Type-server)
 
-set(SOURCE_FILES Src/main.cpp)
-add_executable(R-Type ${SOURCE_FILES})
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17")
+
+set(SOURCE_FILES_CLI Client/Src/main.cpp Client/Src/WindowManager.cpp Client/Src/Systems/PlayerControlSystem.cpp Client/Src/Systems/RenderSystem.cpp)
+set(SOURCE_FILES_SERV Server/main.cpp Server/tcp_connection.cpp Server/tcp_server.cpp Server/udp_server.cpp Server/Utils.cpp)
+
+set(Headers Client/Src/Components/*.h)
+set(Headers Client/Src/Core/*.h)
+
+add_executable(R-Type-client ${SOURCE_FILES_CLI})
+add_executable(R-Type-server ${SOURCE_FILES_SERV})
+
 include_directories(/usr/local/include)
 
 find_package(SFML 2.5 COMPONENTS system window graphics network audio REQUIRED)
 include_directories(${SFML_INCLUDE_DIRS})
-target_link_libraries(R-Type sfml-system sfml-window sfml-graphics sfml-audio sfml-network)
+
+target_link_libraries(R-Type-client sfml-system sfml-window sfml-graphics sfml-audio sfml-network)
+target_link_libraries(R-Type-server sfml-system sfml-window sfml-graphics sfml-audio sfml-network)
+
+#if(NOT DEFINED ASIO_CMAKE_ASIO_TAG)
+#    message(FATAL_ERROR "You must specify ASIO_CMAKE_ASIO_TAG!")
+#endif()
+
+if(NOT DEFINED ASIO_CMAKE_ASIO_SOURCE_DIR)
+    set(ASIO_CMAKE_ASIO_SOURCE_DIR ${CMAKE_CURRENT_LIST_DIR})
+endif()
+
+set(ASIO_CMAKE_ASIO_DEP_DIR "${ASIO_CMAKE_ASIO_SOURCE_DIR}/asio-${ASIO_CMAKE_ASIO_TAG}-src")
+
+include(FetchContent)
+
+FetchContent_Declare(asio
+        GIT_REPOSITORY  https://github.com/chriskohlhoff/asio.git
+        GIT_TAG         ${ASIO_CMAKE_ASIO_TAG}
+        GIT_SHALLOW     TRUE
+        SOURCE_DIR      ${ASIO_CMAKE_ASIO_DEP_DIR}
+        )
+
+FetchContent_GetProperties(asio)
+
+if(NOT asio_POPULATED)
+    message(STATUS "Fetching asio ${ASIO_CMAKE_ASIO_TAG}")
+
+    if(EXISTS "${ASIO_CMAKE_ASIO_DEP_DIR}/asio")
+        set(FETCHCONTENT_SOURCE_DIR_ASIO ${ASIO_CMAKE_ASIO_DEP_DIR})
+        message(STATUS "asio ${ASIO_CMAKE_ASIO_TAG} source found at ${ASIO_CMAKE_ASIO_DEP_DIR}; skip fetching.")
+    endif()
+
+    FetchContent_Populate(asio)
+    message(STATUS "Populating asio ${ASIO_CMAKE_ASIO_TAG} done; src at ${asio_SOURCE_DIR}")
+endif()
+
+add_library(asio INTERFACE)
+
+target_include_directories(asio
+        INTERFACE ${asio_SOURCE_DIR}/asio/include
+        )
+
+target_compile_definitions(asio
+        INTERFACE
+        ASIO_STANDALONE
+        ASIO_NO_DEPRECATED
+        )
+
+if(UNIX)
+    target_link_libraries(asio
+            INTERFACE pthread
+            )
+elseif(WIN32)
+    # macro see @ https://stackoverflow.com/a/40217291/1746503
+    macro(get_WIN32_WINNT version)
+        if (CMAKE_SYSTEM_VERSION)
+            set(ver ${CMAKE_SYSTEM_VERSION})
+            string(REGEX MATCH "^([0-9]+).([0-9])" ver ${ver})
+            string(REGEX MATCH "^([0-9]+)" verMajor ${ver})
+            # Check for Windows 10, b/c we'll need to convert to hex 'A'.
+            if ("${verMajor}" MATCHES "10")
+                set(verMajor "A")
+                string(REGEX REPLACE "^([0-9]+)" ${verMajor} ver ${ver})
+            endif ("${verMajor}" MATCHES "10")
+            # Remove all remaining '.' characters.
+            string(REPLACE "." "" ver ${ver})
+            # Prepend each digit with a zero.
+            string(REGEX REPLACE "([0-9A-Z])" "0\\1" ver ${ver})
+            set(${version} "0x${ver}")
+        endif(CMAKE_SYSTEM_VERSION)
+    endmacro(get_WIN32_WINNT)
+
+    if(NOT DEFINED _WIN32_WINNT)
+        get_WIN32_WINNT(ver)
+        set(_WIN32_WINNT ${ver})
+    endif()
+
+    message(STATUS "Set _WIN32_WINNET=${_WIN32_WINNT}")
+
+    target_compile_definitions(asio
+            INTERFACE
+            _WIN32_WINNT=${_WIN32_WINNT}
+            WIN32_LEAN_AND_MEAN
+            )
+    endif()

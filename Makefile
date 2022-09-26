@@ -117,41 +117,246 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named R-Type
+# Target rules for targets named R-Type-client
 
 # Build rule for target.
-R-Type: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 R-Type
-.PHONY : R-Type
+R-Type-client: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 R-Type-client
+.PHONY : R-Type-client
 
 # fast build rule for target.
-R-Type/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/R-Type.dir/build.make CMakeFiles/R-Type.dir/build
-.PHONY : R-Type/fast
+R-Type-client/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/R-Type-client.dir/build.make CMakeFiles/R-Type-client.dir/build
+.PHONY : R-Type-client/fast
 
-Src/main.o: Src/main.cpp.o
-.PHONY : Src/main.o
+#=============================================================================
+# Target rules for targets named R-Type-server
+
+# Build rule for target.
+R-Type-server: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 R-Type-server
+.PHONY : R-Type-server
+
+# fast build rule for target.
+R-Type-server/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/R-Type-server.dir/build.make CMakeFiles/R-Type-server.dir/build
+.PHONY : R-Type-server/fast
+
+Client/Src/Systems/PlayerControlSystem.o: Client/Src/Systems/PlayerControlSystem.cpp.o
+.PHONY : Client/Src/Systems/PlayerControlSystem.o
 
 # target to build an object file
-Src/main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/R-Type.dir/build.make CMakeFiles/R-Type.dir/Src/main.cpp.o
-.PHONY : Src/main.cpp.o
+Client/Src/Systems/PlayerControlSystem.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/R-Type-client.dir/build.make CMakeFiles/R-Type-client.dir/Client/Src/Systems/PlayerControlSystem.cpp.o
+.PHONY : Client/Src/Systems/PlayerControlSystem.cpp.o
 
-Src/main.i: Src/main.cpp.i
-.PHONY : Src/main.i
+Client/Src/Systems/PlayerControlSystem.i: Client/Src/Systems/PlayerControlSystem.cpp.i
+.PHONY : Client/Src/Systems/PlayerControlSystem.i
 
 # target to preprocess a source file
-Src/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/R-Type.dir/build.make CMakeFiles/R-Type.dir/Src/main.cpp.i
-.PHONY : Src/main.cpp.i
+Client/Src/Systems/PlayerControlSystem.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/R-Type-client.dir/build.make CMakeFiles/R-Type-client.dir/Client/Src/Systems/PlayerControlSystem.cpp.i
+.PHONY : Client/Src/Systems/PlayerControlSystem.cpp.i
 
-Src/main.s: Src/main.cpp.s
-.PHONY : Src/main.s
+Client/Src/Systems/PlayerControlSystem.s: Client/Src/Systems/PlayerControlSystem.cpp.s
+.PHONY : Client/Src/Systems/PlayerControlSystem.s
 
 # target to generate assembly for a file
-Src/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/R-Type.dir/build.make CMakeFiles/R-Type.dir/Src/main.cpp.s
-.PHONY : Src/main.cpp.s
+Client/Src/Systems/PlayerControlSystem.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/R-Type-client.dir/build.make CMakeFiles/R-Type-client.dir/Client/Src/Systems/PlayerControlSystem.cpp.s
+.PHONY : Client/Src/Systems/PlayerControlSystem.cpp.s
+
+Client/Src/Systems/RenderSystem.o: Client/Src/Systems/RenderSystem.cpp.o
+.PHONY : Client/Src/Systems/RenderSystem.o
+
+# target to build an object file
+Client/Src/Systems/RenderSystem.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/R-Type-client.dir/build.make CMakeFiles/R-Type-client.dir/Client/Src/Systems/RenderSystem.cpp.o
+.PHONY : Client/Src/Systems/RenderSystem.cpp.o
+
+Client/Src/Systems/RenderSystem.i: Client/Src/Systems/RenderSystem.cpp.i
+.PHONY : Client/Src/Systems/RenderSystem.i
+
+# target to preprocess a source file
+Client/Src/Systems/RenderSystem.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/R-Type-client.dir/build.make CMakeFiles/R-Type-client.dir/Client/Src/Systems/RenderSystem.cpp.i
+.PHONY : Client/Src/Systems/RenderSystem.cpp.i
+
+Client/Src/Systems/RenderSystem.s: Client/Src/Systems/RenderSystem.cpp.s
+.PHONY : Client/Src/Systems/RenderSystem.s
+
+# target to generate assembly for a file
+Client/Src/Systems/RenderSystem.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/R-Type-client.dir/build.make CMakeFiles/R-Type-client.dir/Client/Src/Systems/RenderSystem.cpp.s
+.PHONY : Client/Src/Systems/RenderSystem.cpp.s
+
+Client/Src/WindowManager.o: Client/Src/WindowManager.cpp.o
+.PHONY : Client/Src/WindowManager.o
+
+# target to build an object file
+Client/Src/WindowManager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/R-Type-client.dir/build.make CMakeFiles/R-Type-client.dir/Client/Src/WindowManager.cpp.o
+.PHONY : Client/Src/WindowManager.cpp.o
+
+Client/Src/WindowManager.i: Client/Src/WindowManager.cpp.i
+.PHONY : Client/Src/WindowManager.i
+
+# target to preprocess a source file
+Client/Src/WindowManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/R-Type-client.dir/build.make CMakeFiles/R-Type-client.dir/Client/Src/WindowManager.cpp.i
+.PHONY : Client/Src/WindowManager.cpp.i
+
+Client/Src/WindowManager.s: Client/Src/WindowManager.cpp.s
+.PHONY : Client/Src/WindowManager.s
+
+# target to generate assembly for a file
+Client/Src/WindowManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/R-Type-client.dir/build.make CMakeFiles/R-Type-client.dir/Client/Src/WindowManager.cpp.s
+.PHONY : Client/Src/WindowManager.cpp.s
+
+Client/Src/main.o: Client/Src/main.cpp.o
+.PHONY : Client/Src/main.o
+
+# target to build an object file
+Client/Src/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/R-Type-client.dir/build.make CMakeFiles/R-Type-client.dir/Client/Src/main.cpp.o
+.PHONY : Client/Src/main.cpp.o
+
+Client/Src/main.i: Client/Src/main.cpp.i
+.PHONY : Client/Src/main.i
+
+# target to preprocess a source file
+Client/Src/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/R-Type-client.dir/build.make CMakeFiles/R-Type-client.dir/Client/Src/main.cpp.i
+.PHONY : Client/Src/main.cpp.i
+
+Client/Src/main.s: Client/Src/main.cpp.s
+.PHONY : Client/Src/main.s
+
+# target to generate assembly for a file
+Client/Src/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/R-Type-client.dir/build.make CMakeFiles/R-Type-client.dir/Client/Src/main.cpp.s
+.PHONY : Client/Src/main.cpp.s
+
+Server/Utils.o: Server/Utils.cpp.o
+.PHONY : Server/Utils.o
+
+# target to build an object file
+Server/Utils.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/R-Type-server.dir/build.make CMakeFiles/R-Type-server.dir/Server/Utils.cpp.o
+.PHONY : Server/Utils.cpp.o
+
+Server/Utils.i: Server/Utils.cpp.i
+.PHONY : Server/Utils.i
+
+# target to preprocess a source file
+Server/Utils.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/R-Type-server.dir/build.make CMakeFiles/R-Type-server.dir/Server/Utils.cpp.i
+.PHONY : Server/Utils.cpp.i
+
+Server/Utils.s: Server/Utils.cpp.s
+.PHONY : Server/Utils.s
+
+# target to generate assembly for a file
+Server/Utils.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/R-Type-server.dir/build.make CMakeFiles/R-Type-server.dir/Server/Utils.cpp.s
+.PHONY : Server/Utils.cpp.s
+
+Server/main.o: Server/main.cpp.o
+.PHONY : Server/main.o
+
+# target to build an object file
+Server/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/R-Type-server.dir/build.make CMakeFiles/R-Type-server.dir/Server/main.cpp.o
+.PHONY : Server/main.cpp.o
+
+Server/main.i: Server/main.cpp.i
+.PHONY : Server/main.i
+
+# target to preprocess a source file
+Server/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/R-Type-server.dir/build.make CMakeFiles/R-Type-server.dir/Server/main.cpp.i
+.PHONY : Server/main.cpp.i
+
+Server/main.s: Server/main.cpp.s
+.PHONY : Server/main.s
+
+# target to generate assembly for a file
+Server/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/R-Type-server.dir/build.make CMakeFiles/R-Type-server.dir/Server/main.cpp.s
+.PHONY : Server/main.cpp.s
+
+Server/tcp_connection.o: Server/tcp_connection.cpp.o
+.PHONY : Server/tcp_connection.o
+
+# target to build an object file
+Server/tcp_connection.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/R-Type-server.dir/build.make CMakeFiles/R-Type-server.dir/Server/tcp_connection.cpp.o
+.PHONY : Server/tcp_connection.cpp.o
+
+Server/tcp_connection.i: Server/tcp_connection.cpp.i
+.PHONY : Server/tcp_connection.i
+
+# target to preprocess a source file
+Server/tcp_connection.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/R-Type-server.dir/build.make CMakeFiles/R-Type-server.dir/Server/tcp_connection.cpp.i
+.PHONY : Server/tcp_connection.cpp.i
+
+Server/tcp_connection.s: Server/tcp_connection.cpp.s
+.PHONY : Server/tcp_connection.s
+
+# target to generate assembly for a file
+Server/tcp_connection.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/R-Type-server.dir/build.make CMakeFiles/R-Type-server.dir/Server/tcp_connection.cpp.s
+.PHONY : Server/tcp_connection.cpp.s
+
+Server/tcp_server.o: Server/tcp_server.cpp.o
+.PHONY : Server/tcp_server.o
+
+# target to build an object file
+Server/tcp_server.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/R-Type-server.dir/build.make CMakeFiles/R-Type-server.dir/Server/tcp_server.cpp.o
+.PHONY : Server/tcp_server.cpp.o
+
+Server/tcp_server.i: Server/tcp_server.cpp.i
+.PHONY : Server/tcp_server.i
+
+# target to preprocess a source file
+Server/tcp_server.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/R-Type-server.dir/build.make CMakeFiles/R-Type-server.dir/Server/tcp_server.cpp.i
+.PHONY : Server/tcp_server.cpp.i
+
+Server/tcp_server.s: Server/tcp_server.cpp.s
+.PHONY : Server/tcp_server.s
+
+# target to generate assembly for a file
+Server/tcp_server.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/R-Type-server.dir/build.make CMakeFiles/R-Type-server.dir/Server/tcp_server.cpp.s
+.PHONY : Server/tcp_server.cpp.s
+
+Server/udp_server.o: Server/udp_server.cpp.o
+.PHONY : Server/udp_server.o
+
+# target to build an object file
+Server/udp_server.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/R-Type-server.dir/build.make CMakeFiles/R-Type-server.dir/Server/udp_server.cpp.o
+.PHONY : Server/udp_server.cpp.o
+
+Server/udp_server.i: Server/udp_server.cpp.i
+.PHONY : Server/udp_server.i
+
+# target to preprocess a source file
+Server/udp_server.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/R-Type-server.dir/build.make CMakeFiles/R-Type-server.dir/Server/udp_server.cpp.i
+.PHONY : Server/udp_server.cpp.i
+
+Server/udp_server.s: Server/udp_server.cpp.s
+.PHONY : Server/udp_server.s
+
+# target to generate assembly for a file
+Server/udp_server.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/R-Type-server.dir/build.make CMakeFiles/R-Type-server.dir/Server/udp_server.cpp.s
+.PHONY : Server/udp_server.cpp.s
 
 # Help Target
 help:
@@ -161,10 +366,35 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... R-Type"
-	@echo "... Src/main.o"
-	@echo "... Src/main.i"
-	@echo "... Src/main.s"
+	@echo "... R-Type-client"
+	@echo "... R-Type-server"
+	@echo "... Client/Src/Systems/PlayerControlSystem.o"
+	@echo "... Client/Src/Systems/PlayerControlSystem.i"
+	@echo "... Client/Src/Systems/PlayerControlSystem.s"
+	@echo "... Client/Src/Systems/RenderSystem.o"
+	@echo "... Client/Src/Systems/RenderSystem.i"
+	@echo "... Client/Src/Systems/RenderSystem.s"
+	@echo "... Client/Src/WindowManager.o"
+	@echo "... Client/Src/WindowManager.i"
+	@echo "... Client/Src/WindowManager.s"
+	@echo "... Client/Src/main.o"
+	@echo "... Client/Src/main.i"
+	@echo "... Client/Src/main.s"
+	@echo "... Server/Utils.o"
+	@echo "... Server/Utils.i"
+	@echo "... Server/Utils.s"
+	@echo "... Server/main.o"
+	@echo "... Server/main.i"
+	@echo "... Server/main.s"
+	@echo "... Server/tcp_connection.o"
+	@echo "... Server/tcp_connection.i"
+	@echo "... Server/tcp_connection.s"
+	@echo "... Server/tcp_server.o"
+	@echo "... Server/tcp_server.i"
+	@echo "... Server/tcp_server.s"
+	@echo "... Server/udp_server.o"
+	@echo "... Server/udp_server.i"
+	@echo "... Server/udp_server.s"
 .PHONY : help
 
 
